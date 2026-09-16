@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of James Webb-Brikas, an AI Trainer specializing in prompt engineering and data quality assurance.">
+  <title>James Webb-Brikas | AI Trainer</title>
+  <style>
+    :root {
+      --ink: #f1f3f4;
+      --muted: #aeb4b9;
+      --paper: #151719;
+      --panel: #24272a;
+      --teal: #d71920;
+      --teal-dark: #0d0f10;
+      --gold: #737a80;
+      --line: #3d4247;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    header {
+      color: #ffffff;
+      background: var(--teal-dark);
+      border-bottom: 5px solid var(--gold);
+    }
+
+    .nav-wrap,
+    main,
+    footer {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 22px 0;
+    }
+
+    .brand {
+      margin: 0;
+      font-size: 1.35rem;
+      letter-spacing: 0.03em;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 22px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+    }
+
+    nav a { text-decoration: none; }
+    nav a:hover, nav a:focus { color: var(--gold); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr;
+      gap: 48px;
+      align-items: end;
+      padding: 96px 0 84px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--teal);
+      font: 700 0.8rem/1.2 Arial, sans-serif;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 { line-height: 1.1; }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(3rem, 8vw, 6.8rem);
+      font-weight: 400;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-lede {
+      max-width: 620px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 1.25rem;
+    }
+
+    .hero-card {
+      padding: 24px;
+      color: #ffffff;
+      background: var(--teal);
+      border-radius: 4px;
+      box-shadow: 12px 12px 0 var(--gold);
+      font-family: Arial, sans-serif;
+    }
+
+    .hero-card strong { display: block; margin-bottom: 8px; font-size: 1.1rem; }
+    .hero-card a { color: #ffffff; }
+
+    section {
+      padding: 72px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 0.35fr 1fr;
+      gap: 32px;
+      margin-bottom: 36px;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--teal);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 400;
+    }
+
+    .section-intro { max-width: 640px; margin: 0; color: var(--muted); }
+
+    .timeline { display: grid; gap: 28px; }
+
+    .role {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .role:first-child { padding-top: 0; border-top: 0; }
+    .role-meta { color: var(--muted); font-family: Arial, sans-serif; font-size: 0.9rem; }
+    .role-meta p { margin: 0 0 6px; }
+    .role h3 { margin: 0 0 4px; font-size: 1.45rem; font-weight: 400; }
+    .role-company { margin: 0 0 12px; color: var(--teal); font-family: Arial, sans-serif; font-weight: 700; }
+    .role ul { margin: 0; padding-left: 20px; }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill-group {
+      min-height: 180px;
+      padding: 24px;
+      background: var(--panel);
+      border-top: 4px solid var(--gold);
+    }
+
+    .skill-group h3 { margin: 0 0 14px; color: var(--teal); font-size: 1.25rem; }
+    .skill-group p { margin: 0; color: var(--muted); font-family: Arial, sans-serif; font-size: 0.95rem; }
+
+    .education {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 32px;
+    }
+
+    .education h3 { margin: 0 0 8px; font-size: 1.6rem; font-weight: 400; }
+    .education p { margin: 5px 0; color: var(--muted); }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 28px 0 40px;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 720px) {
+      .nav-wrap, footer { align-items: flex-start; flex-direction: column; }
+      .hero, .section-heading, .role, .education { grid-template-columns: 1fr; }
+      .hero { gap: 40px; padding: 68px 0; }
+      .skills-grid { grid-template-columns: 1fr; }
+      section { padding: 54px 0; }
+      nav ul { flex-wrap: wrap; gap: 12px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-wrap">
+      <p class="brand">James Webb-Brikas</p>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-labelledby="welcome-heading">
+      <div>
+        <p class="eyebrow">AI Trainer / Prompt Engineering / Data Quality</p>
+        <h1 id="welcome-heading">Making AI responses more accurate, useful, and safe.</h1>
+        <p class="hero-lede">I am James Webb-Brikas, an AI Trainer with a research-minded approach to evaluating language models and improving their performance.</p>
+      </div>
+      <aside class="hero-card">
+        <strong>Let's connect</strong>
+        <a href="mailto:JWebbBrikas@gmail.com">JWebbBrikas@gmail.com</a>
+        <br>
+        <a href="tel:+17274209106">(727) 420-9106</a>
+        <br>
+        <a href="https://www.linkedin.com/in/james-w-966792307/" target="_blank" rel="noreferrer">LinkedIn profile</a>
+      </aside>
+    </section>
+
+    <section id="about" aria-labelledby="about-heading">
+      <div class="section-heading">
+        <h2 id="about-heading">About me</h2>
+        <p class="section-intro">AI Trainer with 1+ year of experience improving LLM accuracy through prompt engineering and quality evaluation. I assess model outputs for factual accuracy, logic, tone, and safety compliance, supported by a foundation in research methods and statistical analysis.</p>
+      </div>
+    </section>
+
+    <section id="experience" aria-labelledby="experience-heading">
+      <div class="section-heading">
+        <h2 id="experience-heading">Experience</h2>
+        <p class="section-intro">A record of careful evaluation, independent problem-solving, leadership, and operational reliability.</p>
+      </div>
+      <div class="timeline">
+        <article class="role">
+          <div class="role-meta">
+            <p>April 2025 - Present</p>
+            <p>Remote</p>
+          </div>
+          <div>
+            <h3>AI Trainer / Independent Contractor</h3>
+            <p class="role-company">DataAnnotation</p>
+            <ul>
+              <li>Designed prompts to train LLMs and evaluated output quality against factual accuracy and safety benchmarks.</li>
+              <li>Analyzed AI responses for accuracy, logic, tone, and safety compliance; documented issues to improve training cycles.</li>
+              <li>Applied analytical reasoning and deep reading comprehension to complex, multi-step data evaluation projects.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="role">
+          <div class="role-meta">
+            <p>May 2023 - Aug 2023</p>
+            <p>May 2024 - Aug 2024</p>
+            <p>Dec 2024 - Jan 2025</p>
+            <p>Citrus Park, FL</p>
+          </div>
+          <div>
+            <h3>Track Marshal</h3>
+            <p class="role-company">Elev8 Fun Management</p>
+            <ul>
+              <li>Supervised track operations and enforced guest safety protocols.</li>
+              <li>De-escalated guest disputes while maintaining smooth operations.</li>
+              <li>Selected for management training based on leadership and reliability.</li>
+              <li>Performed preventative maintenance and mechanical repairs on go-karts.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="role">
+          <div class="role-meta"><p>May 2022 - Aug 2022</p><p>Land O' Lakes, FL</p></div>
+          <div>
+            <h3>Team Member / Trainer</h3>
+            <p class="role-company">Dairy Queen Grill &amp; Chill</p>
+            <ul><li>Trained new hires on operational procedures and quality standards during the peak summer season.</li></ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-heading">
+      <div class="section-heading">
+        <h2 id="skills-heading">Skills</h2>
+        <p class="section-intro">A blend of technical judgment, communication, and detail-oriented evaluation.</p>
+      </div>
+      <div class="skills-grid">
+        <article class="skill-group">
+          <h3>Technical &amp; AI</h3>
+          <p>Prompt Engineering<br>LLM Output Evaluation<br>Data Quality Assurance<br>Microsoft Office Suite<br>Data Entry<br>Database Management</p>
+        </article>
+        <article class="skill-group">
+          <h3>Analytical</h3>
+          <p>Critical Thinking<br>Problem-solving<br>Attention to Detail<br>Research Methods<br>Statistical Analysis</p>
+        </article>
+        <article class="skill-group">
+          <h3>People &amp; Languages</h3>
+          <p>Conflict Resolution<br>Active Listening<br>Team Collaboration<br>English (Native)<br>German (Conversational)</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="education" aria-labelledby="education-heading">
+      <div class="section-heading">
+        <h2 id="education-heading">Education</h2>
+        <p class="section-intro">Building a strong foundation in human behavior, research, and statistics.</p>
+      </div>
+      <div class="education">
+        <div>
+          <h3>Bachelor of Science in Psychology</h3>
+          <p><strong>University of Central Florida</strong></p>
+          <p>Expected 2026 | Orlando, FL</p>
+        </div>
+        <div>
+          <p><strong>Relevant coursework:</strong> Research Methods, Cognitive Psychology, Statistics</p>
+          <p><strong>Extracurriculars:</strong> Member of the Knights Racing Formula Student Team</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <span>James Webb-Brikas</span>
+    <a href="mailto:JWebbBrikas@gmail.com">JWebbBrikas@gmail.com</a>
+    <span>Land O' Lakes, Florida</span>
+  </footer>
+</body>
+</html>
